@@ -1,32 +1,15 @@
 package com.cadenkoehl.detailedlogs;
 
-import com.cadenkoehl.detailedlogs.listeners.BlockBreak;
+import com.cadenkoehl.detailedlogs.listeners.blocks.BlockBreak;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Date;
 
 public class DetailedLogs extends JavaPlugin {
     @Override
     public void onEnable() {
-        System.out.println("Detailed Logs has been enabled!");
-        testWrite();
+        System.out.println("[DetailedLogs] Thank you for choosing Detailed Logs! To view the server logs, go to your plugins folder, then the detailed logs folder!");
         super.getServer().getPluginManager().registerEvents(new BlockBreak(), this);
     }
 
     @Override
     public void onDisable() {}
-
-    public void testWrite() {
-        String date = new Date().toString();
-        try {
-            File file = new File(getDataFolder(), date + ".txt");
-            FileWriter write = new FileWriter(file);
-            write.write("Test!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
