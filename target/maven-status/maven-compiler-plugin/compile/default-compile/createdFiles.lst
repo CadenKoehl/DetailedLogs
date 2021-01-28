@@ -1,2 +1,9 @@
-com/cadenkoehl/detailedlogs/listeners/BlockBreak.class
+com/cadenkoehl/detailedlogs/util/Logger.class
+com/cadenkoehl/detailedlogs/listeners/chat/Commands.class
+com/cadenkoehl/detailedlogs/listeners/blocks/Bucket.class
+com/cadenkoehl/detailedlogs/listeners/blocks/BlockBreak.class
 com/cadenkoehl/detailedlogs/DetailedLogs.class
+com/cadenkoehl/detailedlogs/listeners/chat/Chat.class
+com/cadenkoehl/detailedlogs/util/Registry.class
+com/cadenkoehl/detailedlogs/util/LogType.class
+com/cadenkoehl/detailedlogs/listeners/blocks/BlockPlace.class

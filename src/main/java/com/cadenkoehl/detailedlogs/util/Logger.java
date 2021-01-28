@@ -1,6 +1,8 @@
 package com.cadenkoehl.detailedlogs.util;
 
 import com.cadenkoehl.detailedlogs.DetailedLogs;
+import org.bukkit.Location;
+import org.bukkit.block.Biome;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -9,35 +11,39 @@ import java.util.Date;
 
 
 public class Logger {
-    private static DetailedLogs plugin;
-    public static void log(LogType type, String message) {
-        plugin = DetailedLogs.getPlugin(DetailedLogs.class);
-        String date = new Date().toString();
-        String[] day = date.split("\\s+");
+    public static void log(String type , Location pos, String message) {
+        DetailedLogs plugin = DetailedLogs.getPlugin(DetailedLogs.class);
+        String dateRaw = new Date().toString();
+        String[] dateSplit = dateRaw.split("\\s+");
+        String date = dateSplit[1] + "-" + dateSplit[2] + "-" + dateSplit[5];
         StringBuilder path = new StringBuilder(plugin.getDataFolder().getPath());
-        switch (type) {
-            case CHAT:
-                path.append("/chat/");
-            case ITEM:
-                path.append("/item/");
-            case MISC:
-                path.append("/misc/");
-            case BLOCK:
-                path.append("/block/");
-        }
+        String compiledLogPath = plugin.getDataFolder() + "/compiled-log/";
+
+        path.append(type);
+
         File dir = new File(String.valueOf(path));
+        File compiledLogDir = new File(compiledLogPath);
         if(dir.mkdirs()) {
             System.out.println("[DetailedLogs] Directory \"" + path + "\" has been created");
         }
-        File log = new File(path + day[1] + "-" + day[2] + "-" + day[5] + ".txt");
-        File compiledLogDir = new File(plugin.getDataFolder().getPath() + "compiled-log/");
         if(compiledLogDir.mkdirs()) {
             System.out.println("[DetailedLogs] Directory \"" + path + "\" has been created");
         }
+        File log = new File(path + date + ".txt");
+        File compiledLog = new File(compiledLogPath + date + ".txt");
+        int x = (int) pos.getX();
+        int y = (int) pos.getY();
+        int z = (int) pos.getZ();
+        Biome biome = pos.getWorld().getBiome(x, y, z);
+        String biomeName = biome.getKey().getKey();
         try {
             FileWriter write = new FileWriter(log, true);
-            write.write("\n" + message);
+            FileWriter compiledLogWriter = new FileWriter(compiledLog, true);
+            String output = "\n[" + dateRaw + "] " + message + " in biome " + biomeName + " [" + x + " " + y + " " + z + "]";
+            write.write(output);
             write.close();
+            compiledLogWriter.write(output);
+            compiledLogWriter.close();
         } catch (IOException e) {
             System.out.println("A fatal error has occurred in Detailedlogs! Please report this bug ASAP!");
             e.printStackTrace();

@@ -1,2 +1,9 @@
+/Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/util/Logger.java
 /Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/DetailedLogs.java
-/Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/listeners/BlockBreak.java
+/Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/listeners/chat/Commands.java
+/Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/listeners/blocks/BlockBreak.java
+/Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/listeners/blocks/BlockPlace.java
+/Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/listeners/blocks/Bucket.java
+/Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/util/LogType.java
+/Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/listeners/chat/Chat.java
+/Users/cadenkoehl/IntelliJ/DetailedLogs/src/main/java/com/cadenkoehl/detailedlogs/util/Registry.java
