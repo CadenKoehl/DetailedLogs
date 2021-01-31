@@ -1,3 +1,3 @@
 # DetailedLogs
-## A plugin to help Minecraft server owners keep track of players and their activities.
+## A plugin that records & keeps track of everything that happens on your server!
 ### This plugin is still in development.
