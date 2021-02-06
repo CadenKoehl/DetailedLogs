@@ -13,6 +13,6 @@ public class Chat implements Listener {
         String message = event.getMessage();
         String name = event.getPlayer().getName();
         Location pos = event.getPlayer().getLocation();
-        Logger.log(LogType.CHAT, pos,"[CHAT] <" + name + "> " + message);
+        Logger.log(LogType.CHAT, pos,"[CHAT] <" + name + "> \"" + message + "\"");
     }
 }

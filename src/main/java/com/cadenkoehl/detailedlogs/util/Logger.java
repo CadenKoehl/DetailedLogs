@@ -49,4 +49,37 @@ public class Logger {
             e.printStackTrace();
         }
     }
+    public static void logInfo(String type, String message) {
+        DetailedLogs plugin = DetailedLogs.getPlugin(DetailedLogs.class);
+        String dateRaw = new Date().toString();
+        String[] dateSplit = dateRaw.split("\\s+");
+        String date = dateSplit[1] + "-" + dateSplit[2] + "-" + dateSplit[5];
+        StringBuilder path = new StringBuilder(plugin.getDataFolder().getPath());
+        String compiledLogPath = plugin.getDataFolder() + "/compiled-log/";
+
+        path.append(type);
+
+        File dir = new File(String.valueOf(path));
+        File compiledLogDir = new File(compiledLogPath);
+        if(dir.mkdirs()) {
+            System.out.println("[DetailedLogs] Directory \"" + path + "\" has been created");
+        }
+        if(compiledLogDir.mkdirs()) {
+            System.out.println("[DetailedLogs] Directory \"" + path + "\" has been created");
+        }
+        File log = new File(path + date + ".txt");
+        File compiledLog = new File(compiledLogPath + date + ".txt");
+        try {
+            FileWriter write = new FileWriter(log, true);
+            FileWriter compiledLogWriter = new FileWriter(compiledLog, true);
+            String output = "\n[" + dateRaw + "] " + message;
+            write.write(output);
+            write.close();
+            compiledLogWriter.write(output);
+            compiledLogWriter.close();
+        } catch (IOException e) {
+            System.out.println("A fatal error has occurred in Detailedlogs! Please report this bug ASAP!");
+            e.printStackTrace();
+        }
+    }
 }
